@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Disabled</key>
+	<false/>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>LANG</key>
+		<string>en_US.UTF-8</string>
+	</dict>
+	<key>Label</key>
+	<string>de.zisoft.mdtags</string>
+	<key>Program</key>
+	<string>/Users/yourUserName/scripts/mdtags.rb</string>
+	<key>WatchPaths</key>
+	<array>
+		<string>/Users/yourUserName/Dropbox/MyNotes</string>
+	</array>
+	<key>WorkingDirectory</key>
+	<string>/Users/yourUserName/Dropbox/MyNotes</string>
+</dict>
+</plist>
