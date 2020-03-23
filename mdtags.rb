@@ -20,7 +20,7 @@
 OPENMETA = "/usr/local/bin/openmeta"
 
 # Check for files which were modified within the last 10 seconds
-Dir.glob("*.md").select{|f| Time.now - File.mtime(f) < 10 }.each do |filename|
+Dir.glob(["*.md","*.txt"]).select{|f| Time.now - File.mtime(f) < 10 }.each do |filename|
     
   # Read the file
   lines = File.open(filename, "r").readlines
