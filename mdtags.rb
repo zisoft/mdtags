@@ -20,24 +20,20 @@
 OPENMETA = "/usr/local/bin/openmeta"
 
 # Check for files which were modified within the last 10 seconds
-Dir.glob(["*.md","*.txt"]).select{|f| Time.now - File.mtime(f) < 10 }.each do |filename|
-    
-  # Read the file
-  lines = File.open(filename, "r").readlines
+Dir.glob(["*.md","*.txt"]).select{|f| Time.now - File.mtime(f) < 1000 }.each do |filename|
 
-  # Search the meta section for the 'tags:' keyword
-  # The markdown metadata section of a file ends on the first empty line
   tagline = ""
-  
-  lines.each do |line|
-    line.chomp!.strip!  
-    tagline = line if line =~ /^tags:/
 
-    # tagline found or end of meta section
-    break if line.empty? || !tagline.empty?
+  File.open(filename, "r") do |file|
+    while line = file.gets.chomp.strip
+      # Search the meta section for the 'tags:' keyword
+      # The markdown meta section ends on the first empty line
+      tagline = line if line =~ /tags:/
+      break if line.empty? || !tagline.empty?
+    end
   end
 
-  exit if tagline.empty?  # no tags found
+  next if tagline.empty?  # no tags found
 
   # Extract the tags and remove the leading '#' character
   tags = tagline.split("tags:").last.split(" ").map{|t| t.strip.gsub("#","")}
