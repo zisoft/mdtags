@@ -2,10 +2,10 @@
 
 Automatically write MacOS Finder tags from your markdown files.
 
-This script reads the 'tags' (keywords) which are defined in the metadata section of a markdown file and writes them as MacOS Finder tags using `openmeta`.
+This script reads the 'tags' (keywords) which are defined in the metadata section of a markdown file and writes them as MacOS Finder tags using `xattr`.
 
 The script is intended to be run automatically by MacOS`s launch service
-which will watch the directory where the markdown files are kept. When started by the launch service it checks for files which were modified within 10 seconds ago.
+which will recursively watch the directory where the markdown files are kept. When started by the launch service it checks for files which were modified within 30 seconds ago.
 
 The metadata section of a markdown file is set at the top of the file
 with `key: value` lines. You can put as many lines as you need in the metadata section. The metadata section ends on the first empty line.
